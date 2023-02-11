@@ -10,7 +10,7 @@ function double(num) {
 }
 let doubleNum = numbers.forEach(double);
 ```
-![](./img/main.png)
+`![](./img/1.png)`
 
 
 ```js
@@ -20,6 +20,7 @@ function double(num) {
 }
 let doubleNum = numbers.forEach(double);
 ```
+`![](./img/2.png)`
 
 ```js
 let numbers = [100, 200, 33, 45, 65, 76, 51];
@@ -28,6 +29,7 @@ function double(num) {
 }
 let doubleNum = numbers.forEach(double);
 ```
+`![](./img/3.png)`
 
 ```js
 let numbers = [100, 200, 33, 45, 65, 76, 51];
@@ -36,6 +38,7 @@ function double(num) {
 }
 let doubleNumbers = numbers.map(double);
 ```
+`![](./img/4.png)`
 
 ```js
 let numbers = [100, 200, 33, 45, 65, 76, 51];
@@ -44,6 +47,7 @@ function addTwo(num) {
 }
 let doubleNumbers = numbers.map(addTwo);
 ```
+`![](./img/5.png)`
 
 ```js
 let numbers = [100, 200, 33, 45, 65, 76, 51];
@@ -52,6 +56,7 @@ function addTwo(num) {
 }
 let doubleNumbers = numbers.map(addTwo);
 ```
+`![](./img/6.png)`
 
 ```js
 let numbers = [100, 200, 33, 45, 65, 76, 51];
@@ -60,6 +65,7 @@ function addTwo(num) {
 }
 let doubleNumbers = numbers.map(addTwo);
 ```
+`![](./img/7.png)`
 
 ```js
 let numbers = [100, 200, 33, 45, 65, 76, 51];
@@ -68,6 +74,7 @@ function isOdd(num) {
 }
 let oddNumbers = numbers.filter(isOdd);
 ```
+`![](./img/8.png)`
 
 ```js
 let numbers = [100, 200, 33, 45, 65, 76, 51];
@@ -76,6 +83,7 @@ function test(num) {
 }
 let filteredNumbers = numbers.filter(test);
 ```
+`![](./img/9.png)`
 
 ```js
 let numbers = [100, 200, 33, 45, 65, 76, 51];
@@ -84,6 +92,7 @@ function test(num) {
 }
 let filteredNumbers = numbers.filter(test);
 ```
+`![](./img/10.png)`
 
 ```js
 let numbers = [100, 200, 33, 45, 65, 76, 51];
@@ -92,6 +101,7 @@ function add(accumulator, currentValue) {
 }
 let sum = numbers.reduce(add);
 ```
+`![](./img/11.png)`
 
 ```js
 let numbers = [100, 200, 33, 45, 65, 76, 51];
@@ -100,3 +110,5 @@ function add(accumulator, currentValue) {
 }
 let sum = numbers.reduce(add);
 ```
+`![](./img/12.png)`
+
