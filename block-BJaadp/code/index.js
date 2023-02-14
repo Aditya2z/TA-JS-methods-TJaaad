@@ -77,15 +77,54 @@ that fruit has appeared in the array. Store it in new variable fruitsObj
 Output: 
 {banana: 2, cherry: 3, orange: 3, apple: 2, fig: 1}
 */
+
+/*
+//Function to remove duplicates from an array
+let removeDuplicates = (array) => {
+  for(let j = array.length -1; j >= 0; j--) {
+    for(let i = j-1; i >=0; i--) {
+      if(array[j] === array[i]) array.splice(j,1);
+    }
+  }
+  return array;
+};//can also be done by sorting and comparing only starting two elements
+
+//Function to convert an array to object
+let arrayToObject = (array) => {
+  let obj = {};
+  array = array.map(ele => ele.split(`:`));
+  for(let i = 0; i < array.length; i++) {
+    obj[array[i][0]] = +(array[i][1]);
+  };
+  return obj;
+};
+ 
+
 function fruitCounter(array) {
   let similarFruitArray = [];
   for(let i = 0; i < array.length; i++) {
-    similarFruitArray.push(array.filter(ele => ele === array[i]));
-  }
-  console.log(similarFruitArray);
-  return similarFruitArray.map(ele => ele[0]+` : `+ele.length);
+    similarFruitArray.push(
+      array.filter(ele => ele === array[i])
+    );
+  };
+  let finalCount = similarFruitArray.map(ele => ele[0] + `:` + ele.length);
+  removeDuplicates(finalCount);
+  return arrayToObject(finalCount);
+};
+*/
+
+let fruitCounter = (arr) => {
+  return arr.reduce((acc, cv) => {
+      if(acc[cv]) {
+          acc[cv]++;
+      } else {
+          acc[cv] = 1;
+      }
+      return acc;
+  }, {})
 };
 
+let fruitsObj = fruitCounter(fruitBasket);
 /* 
 
 Use the fruitBasket array to create an array of array. Each array will contain two values name of fruit and number of times
@@ -104,6 +143,27 @@ const data = [
 ];
 
 // Using reduce flat data array
+function flatArray(arr) {
+  return arr.reduce((acc, cv) => {
+
+    for(let i = 0; i < cv.length ; i++) {
+
+      if(Array.isArray(cv[i])) {
+
+        for(let j = 0; j < cv[i].length ; j++) {
+          acc.push(cv[i][j]);
+        }
+
+      } else {
+      acc.push(cv[i]);
+      }
+
+    }
+
+    return acc;
+  }, []);
+};
+flatArray(data);
 
 const dataTwo = [
   [1, 2, 3],
@@ -113,6 +173,7 @@ const dataTwo = [
 ];
 
 // Using reduce flat dataTwo array
+flatArray(dataTwo);
 
 /*
 
@@ -123,17 +184,26 @@ Create these functions which accepts a number value and returns a number value:
   - `triple` triples the input 
   - `half` converts the value to half and return the integer value not decimal (use Math.round(21.5) => 21)
 */
-
+let output;
 let pipeline = [
-  increment,
-  double,
+  increment = (num) => num +1,
+  double = (num) => num * 2,
+  decrement = (num) => num - 1,
   decrement,
-  decrement,
   double,
-  triple,
-  half,
+  triple =  (num) => num * 3,
+  half =  (num) => Math.round(num / 2),
   increment,
 ];
+
+function runPipeline(initialValue) {
+  let result = initialValue;
+  for (let i = 0; i < pipeline.length; i++) {
+    result = pipeline[i](result);
+    console.log(result);
+  }
+  return result;
+}
 
 /*
 Using the pipeline variable that contains the collection of functions, taking the initial value 3 find the output.
@@ -163,4 +233,12 @@ let pipeline2 = [
   triple,
 ];
 
+function runPipeline2(initialValue) {
+  let result = initialValue;
+  for (let i = 0; i < pipeline2.length; i++) {
+    result = pipeline2[i](result);
+    console.log(result);
+  }
+  return result;
+}
 // Find the output using pipeline2 the initial value if 8
