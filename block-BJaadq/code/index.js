@@ -2,34 +2,73 @@
 
 function countAllPeople() {
   // your code goes here
+  let counter = 0;
+  for(let i = 0; i < got.houses.length; i++) {
+    counter += got.houses[i].people.length;
+  }
+  return counter;
 }
 
 function peopleByHouses() {
   // your code goes here
+  let final = [];
+  for(let i = 0; i < got.houses.length; i++) {
+    final.push(`${got.houses[i].name} : ${got.houses[i].people.length}`);
+  }
+  return final.sort();
 }
 
 function everyone() {
   // your code goes here
+  let final = [];
+  for(let i = 0; i < got.houses.length; i++) {
+    final.push(Object.values(got.houses[i].people.map(ele => ele.name)));
+  }
+  return final.flat(Infinity);
 }
 
 function nameWithS() {
   // your code goes here
+  let final = everyone(got).filter(ele => ele.includes(`S`) || ele.includes(`s`));
+  return final;
 }
 
 function nameWithA() {
   // your code goes here
+  let final = everyone(got).filter(ele => ele.includes(`A`) || ele.includes(`a`));
+  return final;
 }
 
 function surnameWithS() {
   // your code goes here
+  let final = everyone(got)
+              .map(ele => ele.split(` `))
+              .filter(ele => ele[1].startsWith(`S`) || ele[1].startsWith(`s`))
+              .map(ele => ele.join(` `));
+                            // .filter(ele => ele[1])
+                            // .filter(ele => ele.startsWith(`S`) || ele.startsWith(`s`));
+  return final;
 }
 
 function surnameWithA() {
   // your code goes here
+  let final = everyone(got)
+  .map(ele => ele.split(` `))
+  .filter(ele => ele[1].startsWith(`A`) || ele[1].startsWith(`a`))
+  .map(ele => ele.join(` `));
+                // .filter(ele => ele[1])
+                // .filter(ele => ele.startsWith(`S`) || ele.startsWith(`s`));
+return final;
 }
 
 function peopleNameOfAllHouses() {
   // your code goes here
+  let final = {};
+  for(let i = 0; i < got.houses.length; i++) {
+    final[got.houses[i].name] = ((got.houses[i].people.map(ele => ele.name)) )
+  }
+  return final;
+
 }
 
 // Testing your result after writing your function
